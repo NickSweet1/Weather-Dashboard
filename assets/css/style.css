@@ -1,7 +1,42 @@
+main {
+    display: flex;
+    flex-wrap: wrap;
+}
 header {
     background-color: purple;
-    height: 10vh;
+    height: 15vh;
     display: flex;
     justify-content: center;
     align-content: center;
 }
+.search-form {
+    background-color: rgb(217, 106, 217);
+    margin-top: 10px; 
+    padding: 0px, 10px, 10px, 10px;
+    width: 20vw;
+    margin-bottom: 10px;
+}
+.search-form h1, .search-form form {
+    display: flex;
+    justify-content: center;
+}
+.current-weather {
+    background-color: lightblue;
+    margin-top: 10px;
+    margin-left: 10px;
+    align-content: center;
+    justify-content: center;
+    width: 75vw; 
+    margin-bottom: 10px;
+}
+.history {
+    background-color: lightsalmon;
+    width: 20vw;
+
+}
+.future-forcast {
+    background-color: beige;
+    width: 75vw;
+    margin-left: 10px;
+}
+
