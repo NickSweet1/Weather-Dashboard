@@ -1,7 +1,7 @@
 var city = document.getElementById("city");
 var userCity = document.getElementById("user-city");
-var currentWeather = document.getElementsByClassName("currentWeather");
-
+var currentWeather = document.querySelector(".current-weather p");
+var future = document.querySelector(".future-forcast p");
 
 //stores the user city input to local storage
 city.addEventListener("submit", function(e) {
@@ -40,7 +40,21 @@ function getWeather(latitude, longitude) {
     })
     .then(function(data) {
       console.log(data);
-    //   console.log(data.list[0].main.feels_like); //example of the format to retrive weather variables
+      var temperature = data.list[0].main.temp;
+      var wind = data.list[0].wind.speed;
+      var humidity = data.list[0].main.humidity;
+      currentWeather.textContent = `Temp: ${temperature}`;
+      currentWeather.append(`Wind: ${wind}`);
+      currentWeather.append(` Humidity: ${humidity}`);
+      for (i = 1; i < 6; i++) {
+        var temperature = data.list[i * 7].main.temp;
+        var wind = data.list[i * 7].wind.speed;
+        var humidity = data.list[i * 7].main.humidity;
+        future.append(` Temp: ${temperature}`);
+        future.append(` Wind: ${wind}`);
+        future.append(` Humidity: ${humidity}`);
+        console.log(i);
+      }
     })
     .catch(function(error) {
       console.log('Error:', error);
