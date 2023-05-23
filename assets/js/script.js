@@ -67,7 +67,7 @@ function getWeather(latitude, longitude) {
       var humidity = data.list[0].main.humidity;
       var todayIcon = `https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`;
       currentWeather.innerHTML = "<strong>" + now + "</strong>";
-      currentWeather.append(`<img class="weather-icon" src=${todayIcon} alt="weather icon"/>`);
+      currentWeather.innerHTML = `<img class="weather-icon" src=${todayIcon} alt="weather icon"/>`;
       currentWeather.append(`Temp: ${temperature}`);
       currentWeather.append(`Wind: ${wind}`);
       currentWeather.append(` Humidity: ${humidity}`);
