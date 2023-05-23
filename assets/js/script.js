@@ -4,7 +4,7 @@ var currentWeather = document.querySelector(".current-weather p");
 var future = document.querySelector(".future-forcast p");
 var nav = document.getElementById("nav");
 var apiKey = "762fda56a56eacfff2fbc0b55b63619a";
-var history = document.querySelector(".history");
+
 
 var day = dayjs().day();
 var date = dayjs();
@@ -26,7 +26,8 @@ city.addEventListener("submit", function (e) {
   e.preventDefault();
   var cityName = userCity.value;
   localStorage.setItem("city", cityName);
-  getCoordinates(cityName);
+
+  cityName?getCoordinates(cityName):"";
 });
 
 function getCoordinates() {
@@ -41,8 +42,12 @@ function getCoordinates() {
       var latitude = data[0].lat;
       var longitude = data[0].lon;
       getWeather(latitude, longitude);
-      //set history of recent searches
-      history.textContent = " ";
+
+      var cityName = userCity.value;
+      var listItem = document.createElement("li");
+      listItem.textContent = cityName;
+      var history = document.querySelector(".history ul");
+      history.appendChild(listItem);
     })
     .catch(function (error) {
       console.log("Error:", error);
@@ -60,7 +65,9 @@ function getWeather(latitude, longitude) {
       var temperature = data.list[0].main.temp;
       var wind = data.list[0].wind.speed;
       var humidity = data.list[0].main.humidity;
+      var todayIcon = `https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`;
       currentWeather.innerHTML = "<strong>" + now + "</strong>";
+      currentWeather.append(`<img class="weather-icon" src=${todayIcon} alt="weather icon"/>`);
       currentWeather.append(`Temp: ${temperature}`);
       currentWeather.append(`Wind: ${wind}`);
       currentWeather.append(` Humidity: ${humidity}`);
@@ -75,10 +82,12 @@ function getWeather(latitude, longitude) {
         var wind = data.list[i * 7].wind.speed;
         var humidity = data.list[i * 7].main.humidity;
         var futuredate = date.add(i + 1, "day").format("MM/DD/YYYY");
+        var icon = `https://openweathermap.org/img/wn/${data.list[i*7].weather[0].icon}@2x.png`
         console.log(futuredate);
-        days[i].textContent =
+        days[i].innerHTML =
+        `<img class="weather-icon" src=${icon} alt="weather icon"/>` +
           futuredate +
-          ` Temp: ${temperature}` +
+          ` Temp: ${temperature}`  +
           ` Wind: ${wind}` +
           ` Humidity: ${humidity}`;
       }
@@ -87,4 +96,3 @@ function getWeather(latitude, longitude) {
       console.log("Error:", error);
     });
 }
-getCoordinates();
