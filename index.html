@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <h1>Weather Dashboard</h1>
+        <h1 id="nav">Weather Dashboard <br></h1>
     </header>
     <main>
         <div class="search-form">
@@ -26,9 +26,18 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
         </div>
         <div class="future-forcast">
-            <P>Search a City for a 5 day forcast.</P>
+            <p id="day-1"></p>
+            <p id="day-2"></p>
+            <p id="day-3"></p>
+            <p id="day-4"></p>
+            <p id="day-5"></p>
         </div>
     </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"
+    ></script>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
