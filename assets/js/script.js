@@ -48,14 +48,12 @@ function getCoordinates() {
       listItem.textContent = cityName;
       listItem.classList.add("history-button");
       historyList.appendChild(listItem);
-
       listItem.addEventListener("click", function (e) {
         e.preventDefault();
         var cityHistory = this.textContent;
-        var city1 = localStorage.setItem("city", cityHistory);
+        localStorage.setItem("city", cityHistory);
         userCity.value = cityHistory;
         getCoordinates(cityHistory);
-        console.log(cityHistory);
       });
     })
     .catch(function (error) {
@@ -71,28 +69,20 @@ function getWeather(latitude, longitude) {
     })
     .then(function (data) {
       console.log(data);
-      var temperature = data.list[0].main.temp;
-      var wind = data.list[0].wind.speed;
-      var humidity = data.list[0].main.humidity;
-      var todayIcon = `https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`;
-      currentWeather.innerHTML = `<img class="weather-icon" src=${todayIcon} alt="weather icon"/>`;
-      currentWeather.append("Forecast for today:");
-      currentWeather.append(` Temp: ${temperature}`);
-      currentWeather.append(` Wind: ${wind}`);
-      currentWeather.append(` Humidity: ${humidity}`);
       var day1 = document.getElementById("day-1");
       var day2 = document.getElementById("day-2");
       var day3 = document.getElementById("day-3");
       var day4 = document.getElementById("day-4");
       var day5 = document.getElementById("day-5");
-      var days = [day1, day2, day3, day4, day5];
-      for (i = 0; i < 5; i++) {
-        var temperature = data.list[i * 7].main.temp;
-        var wind = data.list[i * 7].wind.speed;
-        var humidity = data.list[i * 7].main.humidity;
-        var futuredate = date.add(i + 1, "day").format("MM/DD/YYYY");
+      var day6 = document.getElementById("day-6");
+      var days = [day1, day2, day3, day4, day5, day6];
+      for (i = 0; i < 6; i++) {
+        var temperature = data.list[i * 6].main.temp;
+        var wind = data.list[i * 6].wind.speed;
+        var humidity = data.list[i * 6].main.humidity;
+        var futuredate = date.add(i, "day").format("MM/DD/YYYY");
         var icon = `https://openweathermap.org/img/wn/${
-          data.list[i * 7].weather[0].icon
+          data.list[i * 6].weather[0].icon
         }@2x.png`;
         console.log(futuredate);
         days[i].innerHTML =

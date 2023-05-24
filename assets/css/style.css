@@ -1,108 +1,132 @@
+:root {
+    --primary: ;
+    --background: linear-gradient(#a0d2eb, #e5eaf5, #d0bdf4, #8458B3, #494d5F);
+}
 * {
-    background-color: rgb(8, 8, 8);
-    color: black;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    background-image: var(--background);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
 }
 main {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 header {
-    background-color: #E8F0FF;
-    height: 15vh;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    border: solid white 5px;
+  background-color:var(--primary);
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border: solid white 5px;
+  border-radius: 16px;
 }
 header h1 {
-    background-color: #E8F0FF;
+  background-color:var(--primary);
+  align-self: center;
 }
 .search-form {
-    background-color: #E8F0FF;
-    margin-top: 10px; 
-    padding: 0px, 10px, 10px, 10px;
-    width: 20vw;
-    margin-bottom: 10px;
-    border: solid white 2px;
+  background-color:var(--primary);
+  margin-top: 10px;
+  padding: 0px, 10px, 10px, 10px;
+  width: 20vw;
+  margin-bottom: 10px;
+  border: solid white 2px;
+  border-radius: 16px;
 }
 .current-weather p {
-    background-color: #E8F0FF;
+  background-color:var(--primary);
 }
-.search-form h1, .search-form form {
-    display: flex;
-    justify-content: center;
-    background-color: #E8F0FF;
+.search-form h1,
+.search-form form {
+  display: flex;
+  justify-content: center;
+  background-color:var(--primary);
 }
 .current-weather {
-    background-color: #E8F0FF;
-    margin-top: 10px;
-    margin-left: 10px;
-    align-content: center;
-    justify-content: center;
-    width: 75vw; 
-    margin-bottom: 10px;
-    border: solid white 2px;
+  background-color:var(--primary);
+  margin-top: 10px;
+  margin-left: 10px;
+  align-content: center;
+  justify-content: center;
+  width: 75vw;
+  margin-bottom: 10px;
+  border: solid white 2px;
+  border-radius: 16px;
+  padding: 15px;
+  font-size: 32px;;
 }
-.history, .history h2, .history ul {
-    background-color: #E8F0FF;
-    width: 20vw;
+.history,
+.history h2,
+.history ul {
+  background-color:var(--primary);
+  width: 20vw;
 }
 .history {
-    border: solid white 2px;
-    overflow: hidden;
+  border: solid white 2px;
+  overflow: hidden;
+  border-radius: 16px;
+  padding-left: 20px;
 }
 button {
-    background-color: black;
-    color:white; 
-    margin: 5px;
+  background-color: #494d5F;
+  color: white;
+  margin: 5px;
 }
 button:hover {
-    transform: translate(5px, -10%);
-    box-shadow: -5px 5px 5px rgb(43, 75, 100);
+  transform: translate(5px, -10%);
+  box-shadow: -5px 5px 5px rgb(43, 75, 100);
 }
 li {
-    list-style-type: none;
-    border: solid black 1px;
-    border-radius: 5px;
-    background-color: #E8F0FF;
-    width: fit-content;
-    padding: 5px;
-    margin: 5px;
+  list-style-type: none;
+  border: solid black 1px;
+  border-radius: 5px;
+  background-color:var(--primary);
+  width: fit-content;
+  padding: 5px;
+  margin: 5px;
 }
 .future-forcast {
-    background-color: #E8F0FF;
-    width: 75vw;
-    margin-left: 10px;
-    display: flex;
-    height: 20vh;
-    justify-content: center;
-    border: solid white 2px;
+  width: 75vw;
+  margin-left: 10px;
+  display: flex;
+  height: 20vh;
+  justify-content: center;
 }
 .days {
-    border: solid white 2px;
-    display: flex;
-    margin: 5px;
-    background-color: #E8F0FF;
-    align-items: center;
-
+  border: solid white 2px;
+  display: flex;
+  margin: 5px;
+  background-color:var(--primary);
+  align-items: center;
+  width: 15vw;
+  border-radius: 16px;
+  justify-content: center;
 }
 .weather-icon {
-     height: fit-content;
+  height: fit-content;
 }
 img {
-    background-color: #E8F0FF;
+  background-color:var(--primary);
 }
-form input{
-    color: white;
-    margin-bottom: 10px;
+form input {
+  color: rgb(0, 0, 0);
+  margin-bottom: 10px;
 }
 .weather-icon {
-    height: fit-content;
-    margin-right: 10px; 
- }
- .history ul {
-    max-height: 200px; /* Set a maximum height for the list */
-    overflow-y: auto; /* Enable vertical scrolling if needed */
-    margin: 0; /* Reset margin to remove any unwanted spacing */
-    padding: 0; /* Reset padding to remove any unwanted spacing */
-  }
+  height: fit-content;
+  margin-right: 10px;
+}
+.history ul {
+  max-height: 200px; /* Set a maximum height for the list */
+  overflow-y: auto; /* Enable vertical scrolling if needed */
+  margin: 0; /* Reset margin to remove any unwanted spacing */
+  padding: 0; /* Reset padding to remove any unwanted spacing */
+}
+.days h1{
+    background-color:var(--primary);
+}
