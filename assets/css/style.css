@@ -7,7 +7,7 @@ main {
     flex-wrap: wrap;
 }
 header {
-    background-color: #6699cc;
+    background-color: #E8F0FF;
     height: 15vh;
     display: flex;
     justify-content: center;
@@ -15,10 +15,10 @@ header {
     border: solid white 5px;
 }
 header h1 {
-    background-color: #6699cc;
+    background-color: #E8F0FF;
 }
 .search-form {
-    background-color: #6699cc;
+    background-color: #E8F0FF;
     margin-top: 10px; 
     padding: 0px, 10px, 10px, 10px;
     width: 20vw;
@@ -26,15 +26,15 @@ header h1 {
     border: solid white 2px;
 }
 .current-weather p {
-    background-color: #6699cc;
+    background-color: #E8F0FF;
 }
 .search-form h1, .search-form form {
     display: flex;
     justify-content: center;
-    background-color: #6699cc;
+    background-color: #E8F0FF;
 }
 .current-weather {
-    background-color: #6699cc;
+    background-color: #E8F0FF;
     margin-top: 10px;
     margin-left: 10px;
     align-content: center;
@@ -44,27 +44,33 @@ header h1 {
     border: solid white 2px;
 }
 .history, .history h2, .history ul {
-    background-color: #6699cc;
+    background-color: #E8F0FF;
     width: 20vw;
 }
 .history {
     border: solid white 2px;
+    overflow: hidden;
 }
 button {
     background-color: black;
     color:white; 
+    margin: 5px;
+}
+button:hover {
+    transform: translate(5px, -10%);
+    box-shadow: -5px 5px 5px rgb(43, 75, 100);
 }
 li {
     list-style-type: none;
     border: solid black 1px;
     border-radius: 5px;
-    background-color: #6699cc;
+    background-color: #E8F0FF;
     width: fit-content;
     padding: 5px;
     margin: 5px;
 }
 .future-forcast {
-    background-color: #6699cc;
+    background-color: #E8F0FF;
     width: 75vw;
     margin-left: 10px;
     display: flex;
@@ -76,15 +82,27 @@ li {
     border: solid white 2px;
     display: flex;
     margin: 5px;
-    background-color: #6699cc;
+    background-color: #E8F0FF;
+    align-items: center;
+
 }
 .weather-icon {
      height: fit-content;
 }
 img {
-    background-color: #6699cc;
+    background-color: #E8F0FF;
 }
 form input{
     color: white;
     margin-bottom: 10px;
 }
+.weather-icon {
+    height: fit-content;
+    margin-right: 10px; 
+ }
+ .history ul {
+    max-height: 200px; /* Set a maximum height for the list */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+    margin: 0; /* Reset margin to remove any unwanted spacing */
+    padding: 0; /* Reset padding to remove any unwanted spacing */
+  }

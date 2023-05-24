@@ -57,10 +57,6 @@ function getCoordinates() {
         getCoordinates(cityHistory);
         console.log(cityHistory);
       });
-      // var listItem = document.createElement("li");
-      // listItem.textContent = cityName;
-      // var history = document.querySelector(".history ul");
-      // history.appendChild(listItem);
     })
     .catch(function (error) {
       console.log("Error:", error);
