@@ -1,42 +1,90 @@
+* {
+    background-color: rgb(8, 8, 8);
+    color: black;
+}
 main {
     display: flex;
     flex-wrap: wrap;
 }
 header {
-    background-color: purple;
+    background-color: #6699cc;
     height: 15vh;
     display: flex;
     justify-content: center;
     align-content: center;
+    border: solid white 5px;
+}
+header h1 {
+    background-color: #6699cc;
 }
 .search-form {
-    background-color: rgb(217, 106, 217);
+    background-color: #6699cc;
     margin-top: 10px; 
     padding: 0px, 10px, 10px, 10px;
     width: 20vw;
     margin-bottom: 10px;
+    border: solid white 2px;
+}
+.current-weather p {
+    background-color: #6699cc;
 }
 .search-form h1, .search-form form {
     display: flex;
     justify-content: center;
+    background-color: #6699cc;
 }
 .current-weather {
-    background-color: lightblue;
+    background-color: #6699cc;
     margin-top: 10px;
     margin-left: 10px;
     align-content: center;
     justify-content: center;
     width: 75vw; 
     margin-bottom: 10px;
+    border: solid white 2px;
+}
+.history, .history h2, .history ul {
+    background-color: #6699cc;
+    width: 20vw;
 }
 .history {
-    background-color: lightsalmon;
-    width: 20vw;
-
+    border: solid white 2px;
+}
+button {
+    background-color: black;
+    color:white; 
+}
+li {
+    list-style-type: none;
+    border: solid black 1px;
+    border-radius: 5px;
+    background-color: #6699cc;
+    width: fit-content;
+    padding: 5px;
+    margin: 5px;
 }
 .future-forcast {
-    background-color: beige;
+    background-color: #6699cc;
     width: 75vw;
     margin-left: 10px;
+    display: flex;
+    height: 20vh;
+    justify-content: center;
+    border: solid white 2px;
 }
-
+.days {
+    border: solid white 2px;
+    display: flex;
+    margin: 5px;
+    background-color: #6699cc;
+}
+.weather-icon {
+     height: fit-content;
+}
+img {
+    background-color: #6699cc;
+}
+form input{
+    color: white;
+    margin-bottom: 10px;
+}
