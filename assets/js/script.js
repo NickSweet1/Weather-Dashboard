@@ -36,15 +36,15 @@ city.addEventListener("submit", function (e) {
 function getCoordinates() {
   var userChoice = localStorage.getItem("city");
   var apiCoordinates = `https://api.openweathermap.org/geo/1.0/direct?q=${userChoice}&appid=${apiKey}`;
-  // fetch(apiCoordinates)
-  //   .then(function (response) {
-  //     return response.json();
-  //   })
-  //   .then(function (data) {
-  //     console.log(data);
-  //     var latitude = data[0].lat;
-  //     var longitude = data[0].lon;
-  //     getWeather(latitude, longitude);
+  fetch(apiCoordinates)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      var latitude = data[0].lat;
+      var longitude = data[0].lon;
+      getWeather(latitude, longitude);
 
       var cityName = userCity.value;
       var listItem = document.createElement("button");
