@@ -25,6 +25,9 @@ nav.append(weekday[day] + ", " + now);
 city.addEventListener("submit", function (e) {
   e.preventDefault();
   var cityName = userCity.value;
+  // var localStorageItems = JSON.parse(localStorage.getItem("city")) || [];
+  // localStorageItems.push(cityName);
+
   localStorage.setItem("city", cityName);
 
   cityName ? getCoordinates(cityName) : " ";
@@ -33,21 +36,22 @@ city.addEventListener("submit", function (e) {
 function getCoordinates() {
   var userChoice = localStorage.getItem("city");
   var apiCoordinates = `https://api.openweathermap.org/geo/1.0/direct?q=${userChoice}&appid=${apiKey}`;
-  fetch(apiCoordinates)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-      var latitude = data[0].lat;
-      var longitude = data[0].lon;
-      getWeather(latitude, longitude);
+  // fetch(apiCoordinates)
+  //   .then(function (response) {
+  //     return response.json();
+  //   })
+  //   .then(function (data) {
+  //     console.log(data);
+  //     var latitude = data[0].lat;
+  //     var longitude = data[0].lon;
+  //     getWeather(latitude, longitude);
 
       var cityName = userCity.value;
       var listItem = document.createElement("button");
       listItem.textContent = cityName;
       listItem.classList.add("history-button");
       historyList.appendChild(listItem);
+      
       listItem.addEventListener("click", function (e) {
         e.preventDefault();
         var cityHistory = this.textContent;
