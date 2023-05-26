@@ -1,3 +1,4 @@
+//grabbing ids and classes from html
 var city = document.getElementById("city");
 var userCity = document.getElementById("user-city");
 var currentWeather = document.querySelector(".current-weather p");
@@ -5,7 +6,7 @@ var future = document.querySelector(".future-forcast p");
 var nav = document.getElementById("nav");
 var apiKey = "762fda56a56eacfff2fbc0b55b63619a";
 var historyList = document.querySelector(".history ul");
-
+  //sets the date
 var day = dayjs().day();
 var date = dayjs();
 var weekday = [
@@ -17,7 +18,7 @@ var weekday = [
   "Friday",
   "Saturday",
 ];
-console.log(date);
+//prints the current date
 var now = dayjs().format("MM/DD/YYYY");
 nav.append(weekday[day] + ", " + now);
 
@@ -25,14 +26,14 @@ nav.append(weekday[day] + ", " + now);
 city.addEventListener("submit", function (e) {
   e.preventDefault();
   var cityName = userCity.value;
-  // var localStorageItems = JSON.parse(localStorage.getItem("city")) || [];
-  // localStorageItems.push(cityName);
 
   localStorage.setItem("city", cityName);
 
   cityName ? getCoordinates(cityName) : " ";
 });
 
+
+//gets the latitude and longitude for the city searched
 function getCoordinates() {
   var userChoice = localStorage.getItem("city");
   var apiCoordinates = `https://api.openweathermap.org/geo/1.0/direct?q=${userChoice}&appid=${apiKey}`;
@@ -65,6 +66,7 @@ function getCoordinates() {
     });
 }
 
+//gets weather from the coordinates
 function getWeather(latitude, longitude) {
   var apiWeather = `https://api.openweathermap.org/data/2.5/forecast?units=imperial&lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
   fetch(apiWeather)
@@ -72,7 +74,7 @@ function getWeather(latitude, longitude) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
+      //grabs all the specific days
       var day1 = document.getElementById("day-1");
       var day2 = document.getElementById("day-2");
       var day3 = document.getElementById("day-3");
@@ -80,6 +82,7 @@ function getWeather(latitude, longitude) {
       var day5 = document.getElementById("day-5");
       var day6 = document.getElementById("day-6");
       var days = [day1, day2, day3, day4, day5, day6];
+      //itterates through the days to pring the needed information from the api
       for (i = 0; i < 6; i++) {
         var temperature = data.list[i * 6].main.temp;
         var wind = data.list[i * 6].wind.speed;
@@ -98,6 +101,7 @@ function getWeather(latitude, longitude) {
           ` Humidity: ${humidity} %`;
       }
     })
+    //logs error if something goes wrong
     .catch(function (error) {
       console.log("Error:", error);
     });
