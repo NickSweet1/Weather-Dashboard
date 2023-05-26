@@ -90,6 +90,7 @@ function getWeather(latitude, longitude) {
         }@2x.png`;
         console.log(futuredate);
         days[i].innerHTML =
+          userCity.value +
           `<img class="weather-icon" src=${icon} alt="weather icon"/>` +
           futuredate +
           ` Temp: ${temperature} \u00B0F` +
